@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Information</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #movie-details {
+      background-color: white;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+  <body>
+    <h1>Movie Information</h1>
+    {% for i in data %}
+    <div id="movie-details">
+      <h2>Title: <span id="title">{{ i.title }}</span></h2>
+      <p>Plot: <span id="plot">{{ i.fullplot }}</span></p>
+      <p>
+        Genres:
+        <span id="genres">{{ i.genres|join(', ') }}</span>
+      </p>
+      <p>Runtime: <span id="runtime">{{ i.runtime }}</span> minutes</p>
+      <p>Release Date: <span id="released">{{ i.released }}</span></p>
+      <p>
+        Director(s):
+        <span id="directors">{{ i.directors|join(', ') }}</span>
+      </p>
+      <p>Rated: <span id="rated">{{ i.rated }}</span></p>
+      <p>IMDb Rating: <span id="imdb-rating">{{ i.imdb.rating }}</span></p>
+      <p>IMDb Votes: <span id="imdb-votes">{{ i.imdb.votes }}</span></p>
+      <p>
+        Country:
+        <span id="countries">{{ i.countries|join(', ') }}</span>
+      </p>
+      <p>
+        <center>
+          <img src="{{ i.poster }}" alt="Movie Poster" id="poster" />
+        </center>
+      </p>
+    </div>
+    {% endfor %}
+  </body>
+  <--! My friend repo: https://github.com/EnelSkypieaRuler/movie-infos -->
+</html>
